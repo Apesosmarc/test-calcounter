@@ -4,16 +4,21 @@ import AppBarButton from "./components/AppBarButton";
 import Container from "@mui/material/Container";
 
 function App() {
-  const { items, isLoading, getItems } = useGlobalContext();
+  const { initStorage, setStorage } = useGlobalContext();
 
-  if (isLoading) {
-    return <div>We loadin</div>;
-  }
+  useEffect(() => {
+    if (!initStorage) {
+      setStorage();
+    }
+  }, []);
 
   <div>
     <AppBarButton />
     <Container>
       <MealForm />
+      <button>get Items</button>
+      we not loadin
+      <MealList />
     </Container>
   </div>;
 }

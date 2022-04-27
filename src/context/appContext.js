@@ -19,6 +19,16 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING" });
   };
 
+  const setStorage = () => {
+    setLoading();
+    dispatch({ type: "SET_STORAGE" });
+  };
+
+  const storeItem = (items) => {
+    localStorage.setItem("items", JSON.stringify(items));
+    dispatch({ type: "STORE_ITEM", payload: items });
+  };
+
   const getItem = () => {
     const items = [];
 
@@ -29,28 +39,26 @@ const AppProvider = ({ children }) => {
     return items;
   };
 
-  const getItems = () => {
-    setLoading();
-    const items = [...JSON.parse(localStorage.getItem("items"))];
-    if (!items.length) {
-      dispatch({ type: "GET_ITEMS" });
-    } else if (items.length) {
-      dispatch({ type: "GET_ITEMS", payload: items });
-    }
+  const addMeal = ({ meal = "", calories = 0 }) => {
+    const numCals = Math.trunc(parseInt(calories));
+    dispatch({ type: "ADD_MEAL", payload: { meal, calories: numCals } });
+    dispatch({ type: "SAVE_STATE" });
   };
 
-  const addMeal = ({ meal = "", calories = 0 }) => {
-    console.log("calling");
-    dispatch({ type: "ADD_MEAL", payload: { meal, calories } });
+  const countCals = () => {
+    dispatch({ type: "COUNT_CALS" });
   };
 
   return (
     <AppContext.Provider
       value={{
         ...state,
+        setStorage,
+        storeItem,
         getItems,
         setLoading,
         addMeal,
+        countCals,
       }}
     >
       {children}
