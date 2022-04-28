@@ -17,7 +17,7 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 250 }} aria-label="simple table">
         <TableBody>
           {items.length
-            ? items.map((item, index) => (
+            ? items.map((item) => (
                 <TableRow
                   key={item.meal[0] + Math.trunc(Math.random() * 100000)}
                   id={item.id}

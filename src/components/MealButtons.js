@@ -84,11 +84,6 @@ const MealButtons = ({ formVals, clearInputs }) => {
             </Button>
           </div>
         </Stack>
-        // <React.Fragment>
-        //   <button >edit</button>
-        //   <button onClick={handleDeleteSubmit}>delete</button>
-        //   <button onClick={handleBack}>back</button>
-        // </React.Fragment>
       );
     } else {
       return (
