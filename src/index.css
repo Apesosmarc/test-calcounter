@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.btn {
+  color: white !important;
+  padding: .5rem 1.5rem;
+  height: 40px;
+  min-width: 100px !important
+}
+
+.btn > i {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .btn {
+ 
+    
+  }
+}

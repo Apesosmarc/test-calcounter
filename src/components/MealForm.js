@@ -8,6 +8,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import MealButtons from "./MealButtons";
 
 const mealEntry = {
   meal: "",
@@ -16,7 +17,7 @@ const mealEntry = {
 
 export default function MealForm() {
   const [formVals, setFormVals] = useState(mealEntry);
-  const { addMeal } = useGlobalContext();
+  const { currentItem } = useGlobalContext();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,7 +48,7 @@ export default function MealForm() {
             placeholder="Add Item"
             variant="standard"
             sx={{ width: "45%" }}
-            value={formVals.meal}
+            value={currentItem ? currentItem.meal : formVals.meal}
             onChange={handleInputChange}
           />
           <TextField
@@ -60,17 +61,11 @@ export default function MealForm() {
             }}
             variant="standard"
             sx={{ width: "45%" }}
-            value={formVals.calories}
+            value={currentItem ? currentItem.calories : formVals.calories}
             onChange={handleInputChange}
           />
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              addMeal(formVals);
-            }}
-          >
-            add item
-          </button>
+
+          <MealButtons formVals={formVals} />
         </Box>
       </CardContent>
     </Card>

@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import reducer from "./reducer";
-import { getItems } from "../utils/getItems";
-
 const initialState = {
   items: [],
   currentItem: null,
   totalCalories: 0,
   isLoading: false,
+  initStorage: false,
 };
 
 const AppContext = React.createContext();
@@ -15,7 +14,6 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const setLoading = () => {
-    console.log("we loadin");
     dispatch({ type: "SET_LOADING" });
   };
 
@@ -29,14 +27,12 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "STORE_ITEM", payload: items });
   };
 
-  const getItem = () => {
-    const items = [];
+  const setCurrentItem = (itemId) => {
+    dispatch({ type: "SET_CURRENT_ITEM", payload: itemId });
+  };
 
-    if (localStorage.getItem("items") !== null) {
-      items = JSON.parse(localStorage.getItem("items"));
-    }
-
-    return items;
+  const clearCurrentItem = () => {
+    dispatch({ type: "CLEAR_CURRENT_ITEM" });
   };
 
   const addMeal = ({ meal = "", calories = 0 }) => {
@@ -54,8 +50,9 @@ const AppProvider = ({ children }) => {
       value={{
         ...state,
         setStorage,
+        setCurrentItem,
+        clearCurrentItem,
         storeItem,
-        getItems,
         setLoading,
         addMeal,
         countCals,

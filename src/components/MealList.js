@@ -11,7 +11,13 @@ const MealList = () => {
 
   return (
     <React.Fragment>
-      <Typography variant="h2" gutterBottom component="div">
+      <Typography
+        variant="h3"
+        gutterBottom
+        component="div"
+        align="center"
+        sx={{ marginTop: "20px" }}
+      >
         Total Calories: {totalCalories}
       </Typography>
       <BasicTable />
