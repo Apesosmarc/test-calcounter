@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
+
+/* FIRST TIME WITH MUI SORRY FOR THE OVERRIDE HACKINESS */
+
 .title {
   margin: 0 auto !important;
   text-align: center !important;
