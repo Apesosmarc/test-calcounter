@@ -21,7 +21,8 @@ code {
   color: white !important;
   padding: .5rem 1.5rem;
   height: 40px;
-  min-width: 100px !important
+  width: 155px !important;
+  min-width: 110px !important
 }
 
 .btn:hover{
@@ -29,15 +30,26 @@ code {
 }
 
 .btn > i {
-  margin-right: 10px;
+  margin-right: 3px;
 }
 
 @media screen and (max-width: 800px) {
   .toolbar {
-    width: 100% !important;
+    width: 80% !important;
   }
   .title {
     text-align: left !important;
     margin: auto !important;
+  }
+
+
+}
+
+@media screen and (max-width: 500px) {
+  .stack-mbl {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content:center;
   }
 }

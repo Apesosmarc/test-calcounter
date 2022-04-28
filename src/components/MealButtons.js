@@ -29,7 +29,12 @@ const MealButtons = ({ formVals }) => {
   const renderButtons = () => {
     if (currentItem) {
       return (
-        <Stack spacing={2} direction="row" justifyContent="start">
+        <Stack
+          spacing={1}
+          direction="row"
+          justifyContent="start"
+          className="stack-mbl"
+        >
           <Button
             sx={{
               background: "#ff9800",
