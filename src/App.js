@@ -19,8 +19,7 @@ function App() {
       <AppBarButton />
       <Container>
         <MealForm />
-        <button>get Items</button>
-        we not loadin
+
         <MealList />
       </Container>
     </div>

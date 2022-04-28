@@ -47,7 +47,11 @@ export default function MealForm() {
           noValidate
           autoComplete="off"
         >
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <Typography
+            sx={{ fontSize: "30px" }}
+            color="text.secondary"
+            gutterBottom
+          >
             Add Meal / Food Item
           </Typography>
           <TextField

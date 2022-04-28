@@ -8,7 +8,6 @@ const MealButtons = ({ formVals }) => {
     useGlobalContext();
 
   const handleUpdateSubmit = (e) => {
-
     e.preventDefault();
     formVals.id = currentItem.id;
 
@@ -81,14 +80,16 @@ const MealButtons = ({ formVals }) => {
       );
     } else {
       return (
-        <button
+        <Button
+          className="btn"
+          sx={{ background: "#1565C0", marginTop: "35px" }}
           onClick={(e) => {
             e.preventDefault();
             addMeal(formVals);
           }}
         >
-          add item
-        </button>
+          <i class="fa fa-plus"></i> add meal
+        </Button>
       );
     }
   };

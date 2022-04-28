@@ -20,13 +20,14 @@ code {
   min-width: 100px !important
 }
 
+.btn:hover{
+  background: #1565C0 !important
+}
+
 .btn > i {
   margin-right: 10px;
 }
 
 @media screen and (max-width: 800px) {
-  .btn {
- 
-    
-  }
+
 }

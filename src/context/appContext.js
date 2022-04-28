@@ -43,6 +43,8 @@ const AppProvider = ({ children }) => {
 
   const updateItem = (formVal) => {
     dispatch({ type: "UPDATE_ITEM", payload: formVal });
+    dispatch({ type: "SAVE_STATE" });
+    dispatch({ type: "CLEAR_CURRENT_ITEM" });
   };
 
   // set default empty str to meal entry + cals = 0
