@@ -31,6 +31,13 @@ export default function MealForm() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
+    //avoiding NaN inputs
+    if (name === "calories") {
+      if (isNaN(parseInt(value))) {
+        return;
+      }
+    }
+
     setFormVals({
       ...formVals,
       [name]: value,
