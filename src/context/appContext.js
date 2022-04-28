@@ -35,7 +35,19 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "CLEAR_CURRENT_ITEM" });
   };
 
+  const deleteItem = (itemId) => {
+    dispatch({ type: "DELETE_ITEM", payload: itemId });
+    dispatch({ type: "SAVE_STATE" });
+    dispatch({ type: "CLEAR_CURRENT_ITEM" });
+  };
+
+  const updateItem = (formVal) => {
+    dispatch({ type: "UPDATE_ITEM", payload: formVal });
+  };
+
+  // set default empty str to meal entry + cals = 0
   const addMeal = ({ meal = "", calories = 0 }) => {
+    if (meal.trim() === "") return;
     const numCals = Math.trunc(parseInt(calories));
     dispatch({ type: "ADD_MEAL", payload: { meal, calories: numCals } });
     dispatch({ type: "SAVE_STATE" });
@@ -53,6 +65,8 @@ const AppProvider = ({ children }) => {
         setCurrentItem,
         clearCurrentItem,
         storeItem,
+        deleteItem,
+        updateItem,
         setLoading,
         addMeal,
         countCals,

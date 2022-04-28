@@ -4,7 +4,28 @@ import Button from "@mui/material/Button";
 import { useGlobalContext } from "../context/appContext";
 
 const MealButtons = ({ formVals }) => {
-  const { currentItem, clearCurrentItem, addMeal } = useGlobalContext();
+  const { currentItem, clearCurrentItem, addMeal, deleteItem, updateItem } =
+    useGlobalContext();
+
+  const handleUpdateSubmit = (e) => {
+
+    e.preventDefault();
+    formVals.id = currentItem.id;
+
+    updateItem(formVals);
+  };
+
+  const handleDeleteSubmit = (e) => {
+    e.preventDefault();
+
+    deleteItem(currentItem.id);
+  };
+
+  const handleBack = (e) => {
+    e.preventDefault();
+
+    clearCurrentItem();
+  };
 
   const renderButtons = () => {
     if (currentItem) {
@@ -70,20 +91,6 @@ const MealButtons = ({ formVals }) => {
         </button>
       );
     }
-  };
-
-  const handleUpdateSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const handleDeleteSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const handleBack = (e) => {
-    e.preventDefault();
-
-    clearCurrentItem();
   };
 
   return renderButtons();

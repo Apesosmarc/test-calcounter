@@ -27,6 +27,24 @@ const reducer = (state, action) => {
     return { ...state, isLoading: false };
   }
 
+  if (action.type === "DELETE_ITEM") {
+    const filteredItems = state.items.filter((item) => {
+      return item.id !== action.payload;
+    });
+
+    return { ...state, items: filteredItems };
+  }
+
+  if (action.type === "UPDATE_ITEM") {
+    const id = action.payload.id;
+    const index = state.items.findIndex((item) => item.id === id);
+    //avoiding mutating state
+    const newArr = [...state.items];
+    newArr[index] = action.payload;
+
+    return { ...state, items: newArr };
+  }
+
   if (action.type === "SET_CURRENT_ITEM") {
     const currentItem = state.items.find(({ id }) => id === action.payload);
 
