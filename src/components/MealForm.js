@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import MealButtons from "./MealButtons";
 
-const initState = (currentItem) => {
+const initState = () => {
   return {
     meal: "",
     calories: 0,
@@ -35,6 +35,10 @@ export default function MealForm() {
       ...formVals,
       [name]: value,
     });
+  };
+
+  const clearInputs = () => {
+    setFormVals(initState());
   };
   return (
     <Card>
@@ -78,7 +82,7 @@ export default function MealForm() {
             onChange={handleInputChange}
           />
 
-          <MealButtons formVals={formVals} />
+          <MealButtons clearInputs={clearInputs} formVals={formVals} />
         </Box>
       </CardContent>
     </Card>

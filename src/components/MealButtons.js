@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useGlobalContext } from "../context/appContext";
 
-const MealButtons = ({ formVals }) => {
+const MealButtons = ({ formVals, clearInputs }) => {
   const { currentItem, clearCurrentItem, addMeal, deleteItem, updateItem } =
     useGlobalContext();
 
@@ -24,6 +24,13 @@ const MealButtons = ({ formVals }) => {
     e.preventDefault();
 
     clearCurrentItem();
+  };
+
+  const handleMealAdd = (e) => {
+    e.preventDefault();
+
+    addMeal(formVals);
+    clearInputs();
   };
 
   const renderButtons = () => {
@@ -88,10 +95,7 @@ const MealButtons = ({ formVals }) => {
         <Button
           className="btn"
           sx={{ background: "#1565C0", marginTop: "35px" }}
-          onClick={(e) => {
-            e.preventDefault();
-            addMeal(formVals);
-          }}
+          onClick={handleMealAdd}
         >
           <i class="fa fa-plus"></i> add meal
         </Button>
