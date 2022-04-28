@@ -2,7 +2,10 @@
 
 ## Link to Netlify app: https://mj-testapp.netlify.app/
 
-In the project directory, you can run:
+
+
+
+
 
 ### `npm start`
 
