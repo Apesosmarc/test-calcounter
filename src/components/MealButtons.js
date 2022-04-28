@@ -11,6 +11,14 @@ const MealButtons = ({ formVals, clearInputs }) => {
     e.preventDefault();
     formVals.id = currentItem.id;
 
+    //avoid emppty strings, set defauklts
+    if (!formVals.meal.trim()) {
+      formVals.meal = "Meal Entry";
+    }
+    if (!formVals.calories) {
+      formVals.calories = 0;
+    }
+
     updateItem(formVals);
   };
 
@@ -50,7 +58,7 @@ const MealButtons = ({ formVals, clearInputs }) => {
             onClick={handleUpdateSubmit}
             variant="text"
           >
-            <i class="fa fa-pencil-square-o"></i> Update Meal
+            <i className="fa fa-pencil-square-o"></i> Update Meal
           </Button>
           <Button
             className="btn"

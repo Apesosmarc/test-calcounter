@@ -10,8 +10,6 @@ import { useGlobalContext } from "../context/appContext";
 export default function BasicTable() {
   const { items, setCurrentItem } = useGlobalContext();
 
-  console.log(items);
-
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 250 }} aria-label="simple table">
