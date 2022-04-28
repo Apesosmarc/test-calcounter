@@ -62,6 +62,10 @@ const reducer = (state, action) => {
     return { ...state, items: [...state.items, action.payload] };
   }
 
+  if (action.type === "DELETE_ALL_ITEMS") {
+    return { ...state, items: [] };
+  }
+
   if (action.type === "COUNT_CALS") {
     let cals = 0;
     state.items.forEach((item) => {

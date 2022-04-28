@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import reducer from "./reducer";
 const initialState = {
   items: [],
@@ -55,6 +55,11 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SAVE_STATE" });
   };
 
+  const deleteAll = () => {
+    dispatch({ type: "DELETE_ALL_ITEMS" });
+    dispatch({ type: "SAVE_STATE" });
+  };
+
   const countCals = () => {
     dispatch({ type: "COUNT_CALS" });
   };
@@ -70,6 +75,7 @@ const AppProvider = ({ children }) => {
         deleteItem,
         updateItem,
         setLoading,
+        deleteAll,
         addMeal,
         countCals,
       }}
