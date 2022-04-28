@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.title {
+  margin: 0 auto !important;
+  text-align: center !important;
+}
 
 .btn {
   color: white !important;
@@ -29,5 +33,11 @@ code {
 }
 
 @media screen and (max-width: 800px) {
-
+  .toolbar {
+    width: 100% !important;
+  }
+  .title {
+    text-align: left !important;
+    margin: auto !important;
+  }
 }

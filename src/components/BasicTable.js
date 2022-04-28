@@ -12,6 +12,8 @@ import { useGlobalContext } from "../context/appContext";
 export default function BasicTable() {
   const { items, setCurrentItem } = useGlobalContext();
 
+  console.log(items);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 250 }} aria-label="simple table">
@@ -19,7 +21,7 @@ export default function BasicTable() {
           {items.length
             ? items.map((item, index) => (
                 <TableRow
-                  key={item.meal[0] + Math.trunc(Math.random() * 100)}
+                  key={item.meal[0] + Math.trunc(Math.random() * 100000)}
                   id={item.id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
