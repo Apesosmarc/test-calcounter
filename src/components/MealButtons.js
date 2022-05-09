@@ -19,6 +19,8 @@ const MealButtons = ({ formVals, clearInputs }) => {
       formVals.calories = 0;
     }
 
+    console.log(typeof formVals.calories);
+
     updateItem(formVals);
   };
 

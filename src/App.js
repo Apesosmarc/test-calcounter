@@ -6,8 +6,9 @@ import { useGlobalContext } from "./context/appContext";
 import { useEffect } from "react";
 
 function App() {
-  const { initStorage, setStorage } = useGlobalContext();
+  const { initStorage, setStorage, countCals } = useGlobalContext();
 
+  // inits items in storage.
   useEffect(() => {
     if (!initStorage) {
       setStorage();

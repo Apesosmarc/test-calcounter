@@ -29,11 +29,12 @@ export default function MealForm() {
   }, [currentItem]);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
 
     //avoiding NaN inputs
     if (name === "calories") {
-      if (isNaN(parseInt(value))) {
+      value = parseInt(value);
+      if (isNaN(value)) {
         return;
       }
     }

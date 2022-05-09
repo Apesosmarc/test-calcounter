@@ -1,12 +1,20 @@
 import Typography from "@mui/material/Typography";
-import React, { useEffect } from "react";
-import { useGlobalContext } from "../context/appContext";
+import React, { useEffect, useState } from "react";
+
 import BasicTable from "./BasicTable";
+import { useGlobalContext } from "../context/appContext";
 const MealList = () => {
-  const { items, countCals, totalCalories } = useGlobalContext();
+  const { items, totalCalories } = useGlobalContext();
+  const [currCals, setCurrCals] = useState(totalCalories);
 
   useEffect(() => {
-    countCals();
+    setCurrCals(
+      items.reduce((prev, curr) => {
+        return prev + curr.calories;
+      }, 0)
+    );
+
+    console.log(items);
   }, [items]);
 
   return (
@@ -18,7 +26,7 @@ const MealList = () => {
         align="center"
         sx={{ marginTop: "20px" }}
       >
-        Total Calories: {totalCalories}
+        Total Calories: {currCals}
       </Typography>
       <BasicTable />
     </React.Fragment>
