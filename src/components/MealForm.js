@@ -34,7 +34,7 @@ export default function MealForm() {
     //avoiding NaN inputs
     if (name === "calories") {
       value = parseInt(value);
-      if (isNaN(value)) {
+      if (value && isNaN(value)) {
         return;
       }
     }
