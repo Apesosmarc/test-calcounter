@@ -12,7 +12,6 @@ const countCals = (items) => {
 
 const MealList = () => {
   const { items, totalCalories } = useGlobalContext();
-  const [currCals, setCurrCals] = useState(totalCalories);
   const memoSum = useMemo(() => countCals(items), [items]);
 
   return (

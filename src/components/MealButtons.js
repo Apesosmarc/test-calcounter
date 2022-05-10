@@ -37,6 +37,14 @@ const MealButtons = ({ formVals, clearInputs }) => {
   const handleMealAdd = (e) => {
     e.preventDefault();
 
+    //avoid emppty strings, set defauklts
+    if (!formVals.meal.trim()) {
+      formVals.meal = "Meal Entry";
+    }
+    if (isNaN(formVals.calories)) {
+      formVals.calories = 0;
+    }
+
     addMeal(formVals);
     clearInputs();
   };

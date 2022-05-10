@@ -73,9 +73,11 @@ const reducer = (state, action) => {
     });
 
     return { ...state, totalCalories: cals };
+  } else {
+    return state;
   }
 
-  throw new Error(`no such action: ${action}`);
+  // throw new Error(`no such action: ${action}`);
 };
 
 export default reducer;
